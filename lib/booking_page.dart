@@ -112,7 +112,7 @@ class _BookingPageState extends State<BookingPage> {
     }
 
     var url = Uri.parse(
-        "http://localhost/flutter_booking_66702168/php_api/add_booking.php");
+        "http://localhost/flutter_booking_66710991/php_api/add_booking.php");
 
     var response = await http.post(
       url,

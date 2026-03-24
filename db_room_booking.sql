@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2026 at 09:15 PM
+-- Generation Time: Mar 24, 2026 at 08:59 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_room_booking`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `firsname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `firsname`, `lastname`, `username`, `password`) VALUES
+(1, 'top', 'tp', 'top', '1234'),
+(2, 'cat', 'cats', 'tom', '1234');
 
 -- --------------------------------------------------------
 
@@ -41,13 +63,32 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `room_id`, `user_name`, `booking_date`, `start_time`, `end_time`) VALUES
-(1, NULL, NULL, NULL, NULL, NULL),
-(2, NULL, NULL, NULL, NULL, NULL),
-(3, NULL, NULL, NULL, NULL, NULL),
-(4, NULL, NULL, NULL, NULL, NULL),
-(5, 5, 'cat', '2026-03-23', '08:30:00', '11:50:00'),
-(6, 5, 'cat', '2026-03-18', '13:08:00', '14:20:00'),
-(7, 5, 'ta', '2026-03-17', '13:10:00', '14:10:00');
+(1, 5, 'q', '2026-03-17', '02:09:00', '03:09:00'),
+(2, 1, 'อภิวัตต์ แก้วมรกตทิพย์', '2026-03-17', '03:07:00', '06:07:00'),
+(3, 5, 'AnanSukjai', '2026-03-31', '11:57:00', '13:58:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE `employees` (
+  `emp_id` int(11) NOT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`emp_id`, `first_name`, `last_name`, `phone`, `username`, `password`) VALUES
+(1, 'Suda', 'Thongdee', '0823456789', 'user', '1234'),
+(2, 'Anan', 'Sukjai', '0834567890', 'admin', '1234');
 
 -- --------------------------------------------------------
 
@@ -79,6 +120,12 @@ INSERT INTO `rooms` (`id`, `room_name`, `capacity`, `location`, `image`) VALUES
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `bookings`
 --
 ALTER TABLE `bookings`
@@ -99,7 +146,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `rooms`
